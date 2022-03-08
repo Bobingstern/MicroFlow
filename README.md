@@ -2,7 +2,7 @@
 Export and run TensorFlow models on Arduino microcontrollers!
 
 ## Update Notes:
-Version 1.0.0-alpha is finally finished! Eventually I will make this library class based rather than C headers and methods so make sure to stay updated for that.
+Version `1.0.0-alpha` is finally finished! Eventually I will make this library class based rather than C headers and methods so make sure to stay updated for that. Also, a floated version of this library will be released soon that used floats rather than doubles to save a bit of memory.
 
 ## Usage
 
@@ -40,7 +40,7 @@ target_data = np.array([[0],[1],[1],[0]], "float32")
 MODEL.fit(training_data, target_data, epochs=1000)
 ```
 
-Great! Now that we have a fully trained tensorflow model, let's take a look at how to export it into MicroFlow.
+Great! Now that we have a fully trained TensorFlow model, let's take a look at how to export it into MicroFlow.
 The following script will take in a model as a parameter and save it's weights and biases into a format that MicroFlow can use, which is just a flat array of weights and biases. The name of the file it saves this to can be specified via the ```filename``` parameter in the function. The ```Architecture``` functionality is still in alpha so please contact me if there is an issue
 
 The output file will contain something along the lines of:
@@ -180,3 +180,10 @@ If you've tested a board that is not on this list, please make an issue and tell
 
 # Found a Bug?
 This library in still in very early stages of development so bugs are to be expected. If you find one, please make an issue and provide steps on how to recreate it. Thanks!
+
+# Contributors
+<table>
+<td align="center"><a href="https://github.com/Bobingstern"><img src="https://avatars.githubusercontent.com/u/74193405?v=4" width="100px;"><br/><sub><b>Bobingstern (me)
+<td align="center"><a href="https://github.com/UnsignedArduino"><img src="https://avatars.githubusercontent.com/u/38868705?v=4" width="100px;"><br/><sub><b>Ckyiu
+ 
+</table>
