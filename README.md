@@ -172,9 +172,9 @@ Check out the repl I made to demonstrate the library without an Arduino board. I
 
 | Arduino      | XOR     | Sin      |
 | ------------ | ------- | -------- |
-| Arduino Uno  | Yes     | Yes      |
-| Arduino Mega | Pending | Pending  |
-| Arduino Due  | Pending | Pending  |
+| Arduino Uno  | :heavy_minus_sign: | :heavy_minus_sign:  |
+| Arduino Mega | :white_check_mark: | :white_check_mark:  |
+| Arduino Due  | :heavy_minus_sign: | :heavy_minus_sign:  |
 
 If you've tested a board that is not on this list, please make an issue and tell me!
 
