@@ -2,7 +2,12 @@
 Export and run TensorFlow models on Arduino microcontrollers!
 
 ## Update Notes:
-Version `1.0.0-alpha` is finally finished! Eventually I will make this library class based rather than C headers and methods so make sure to stay updated for that. Also, a floated version of this library will be released soon that used floats rather than doubles to save a bit of memory.
+Version `1.0.0-alpha` is finally finished! Eventually I will make this library class based rather than C headers and methods so make sure to stay updated for that. Also, a floated version of this library will be released soon that used floats rather than doubles to save a bit of memory. **Remember! This library is still in early stages of development, expect bugs!** I'm working hard on ironing out the issues and optimizing memory.
+
+## How it works:
+It's super simple actually. You train a model using TensorFlow on whatever machine you want (I used Google Colab) and run a simple script that allows you to load the model into an Arduino sketch just by copy and pasting a few arrays!
+
+From here, MicroFlow does the rest. For those who want a technical explaination: All it does is run basic linear algebra methods like the matrix multiplication and a basic activation method.
 
 ## Usage
 
