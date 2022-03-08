@@ -172,11 +172,11 @@ Check out the repl I made to demonstrate the library without an Arduino board. I
 
 | Arduino          | Chip           | RAM   | XOR     | Sin     |
 | ---------------- | -------------- | ----- | ------- | ------- |
-| Arduino Uno      | ATmega328P     | 2KB   | Yes     | Yes     |
-| Arduino Mega     | ATmega2560     | 8KB   | Pending | Pending |
-| Arduino Due      | SAM3X8E M3     | 96KB  | Pending | Pending |
-| Adafruit PyGamer | ATSAMD51J19 M4 | 192KB | Pending | Pending |
-| ESP32            | ESP-WROOM-32   | 320KB | Pending | Pending |
+| Arduino Uno      | ATmega328P     | 2KB   | :heavy_minus_sign:     | :heavy_minus_sign:     |
+| Arduino Mega     | ATmega2560     | 8KB   | :white_check_mark: | :white_check_mark: |
+| Arduino Due      | SAM3X8E M3     | 96KB  | :heavy_minus_sign: | :heavy_minus_sign: |
+| Adafruit PyGamer | ATSAMD51J19 M4 | 192KB | :heavy_minus_sign: | :heavy_minus_sign: |
+| ESP32            | ESP-WROOM-32   | 320KB | :heavy_minus_sign: | :heavy_minus_sign: |
 
 If you've tested a board that is not on this list, please make an issue and tell me!
 
