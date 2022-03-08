@@ -182,8 +182,7 @@ If you've tested a board that is not on this list, please make an issue and tell
 This library in still in very early stages of development so bugs are to be expected. If you find one, please make an issue and provide steps on how to recreate it. Thanks!
 
 # Contributors
-<table>
-<td align="center"><a href="https://github.com/Bobingstern"><img src="https://avatars.githubusercontent.com/u/74193405?v=4" width="100px;"><br/><sub><b>Bobingstern (me)
-<td align="center"><a href="https://github.com/UnsignedArduino"><img src="https://avatars.githubusercontent.com/u/38868705?v=4" width="100px;"><br/><sub><b>Ckyiu
- 
-</table>
+<a href="https://github.com/Bobingstern/MicroFlow/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Bobingstern/MicroFlow" />
+</a>
+
