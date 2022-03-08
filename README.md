@@ -7,7 +7,7 @@ Export and run tensorflow models on arduino microcontrollers!
 Currently, this library is not available on the arduino library manager so go ahead and download the latest release at: https://github.com/Bobingstern/MicroFlow/releases and at it to your sketch folder
 
 ### Training
-Train the model using tensorflow on whatever system you like. You can refer to the training examples for sin and XOR [here](https://github.com/Bobingstern/MicroFlow/blob/main/exmaples/Arduino_MicroFlow.ipynb)
+Train the model using tensorflow on whatever system you like. You can refer to the training examples for sin and XOR [here](https://github.com/Bobingstern/MicroFlow/blob/main/examples/Arduino_MicroFlow.ipynb)
 I will be using the XOR model for demonstration purposes
 
 ```py
