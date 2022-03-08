@@ -1,10 +1,13 @@
 # MicroFlow
-Export and run tensorflow models on arduino microcontrollers!
+Export and run TensorFlow models on Arduino microcontrollers!
+
+## Update Notes:
+Version 1.0.0-alpha is finally finished! Eventually I will make this library class based rather than C headers and methods so make sure to stay updated for that.
 
 ## Usage
 
 ### Installation
-Currently, this library is not available on the arduino library manager so go ahead and download the latest release at: https://github.com/Bobingstern/MicroFlow/releases and at it to your sketch folder
+Currently, this library is not available on the Arduino library manager so go ahead and download the latest release at: https://github.com/Bobingstern/MicroFlow/releases and at it to your sketch folder
 
 ### Training
 Train the model using tensorflow on whatever system you like. You can refer to the training examples for sin and XOR [here](https://github.com/Bobingstern/MicroFlow/blob/main/examples/Arduino_MicroFlow.ipynb)
@@ -162,7 +165,7 @@ The ```feedforward``` method takes in 6 parameters. `layers` `topology` `weights
 
 `output` where you want to output of the feed forward pass to be stored. (double array)
 
-### Don't have an arduino right now?
+### Don't have an Arduino right now?
 Check out the repl I made to demonstrate the library without an Arduino board. It uses exactly the same code and just includes a few extra header files. Check it out [here](https://replit.com/@Bobingstern/MicroFlow-Testing?v=1)
 
 ## Compatibility
