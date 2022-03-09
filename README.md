@@ -2,7 +2,7 @@
 Export and run TensorFlow models on Arduino microcontrollers!
 
 ## Update Notes:
-Version `1.0.0-alpha` is finally finished! Eventually I will make this library class based rather than C headers and methods so make sure to stay updated for that. Also, a floated version of this library will be released soon that used floats rather than doubles to save a bit of memory.
+Version `1.0.0` is finally finished! Eventually I will make this library class based rather than C headers and methods so make sure to stay updated for that. Eventually I will add different network types bt currently I'm working on ironing out some small issues.
 
 ## Usage
 
