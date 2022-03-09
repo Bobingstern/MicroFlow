@@ -16,7 +16,7 @@ Currently, this library is not available on the Arduino library manager so go ah
 
 ### Training
 Train the model using tensorflow on whatever system you like. You can refer to the training examples for sin and XOR [here](https://github.com/Bobingstern/MicroFlow/blob/main/examples/Arduino_MicroFlow.ipynb)
-I will be using the XOR model for demonstration purposes
+I will be using the XOR model for demonstration purposes. Currently only Multi-Layer Perceptrons (MLPs) are supported (Dense layers in keras).
 
 ```py
 # TensorFlow is an open source machine learning library
