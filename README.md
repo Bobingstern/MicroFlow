@@ -1,3 +1,5 @@
+![My epic logo](https://github.com/Bobingstern/MicroFlow/blob/main/MicroFlow%20(1280%20%C3%97%20300%20px).png?raw=true)
+
 # MicroFlow
 Export and run TensorFlow models on Arduino microcontrollers!
 
