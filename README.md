@@ -3,10 +3,13 @@
 # MicroFlow
 Export and run TensorFlow models on Arduino microcontrollers!
 
-## Update Notes:
+### Why?
+Currently, tflite-micro can only run on high memory boards like the Nano 33 BLE. I wanted to make it possible to run TensorFlow models on boards even with low amounts of memory and make the process as simple as possible while still making it useful and efficient. If eventually they do manage to make it possible to run tflite on low memory boards like the Uno then this library will become obsolete :( Also, I wanted to brush up on linear algebra :) 
+
+### Update Notes:
 Version `1.0.0` is finally finished! Eventually I will make this library class based rather than C headers and methods so make sure to stay updated for that. Eventually I will add different network types bt currently I'm working on ironing out some small issues.
 
-## Usage
+# Usage
 
 ### Installation
 Currently, this library is not available on the Arduino library manager so go ahead and download the latest release at: https://github.com/Bobingstern/MicroFlow/releases and at it to your sketch folder
@@ -181,6 +184,9 @@ Check out the repl I made to demonstrate the library without an Arduino board. I
 | ESP32            | ESP-WROOM-32   | 320KB | :heavy_minus_sign: | :heavy_minus_sign: |
 
 If you've tested a board that is not on this list, please make an issue and tell me!
+
+# Current Issues
+Currently, the Arduino Uno cannot run the Sin test. If I've done the math correctly, the Uno should be able to run the model with more than 400 bytes of memory left but it just kind of dies. I've tested it on the Mega while monitoring the memory and it does not exceed the limit of the Uno. I assume it is a problem with the Serial Monitor. I'll try to get this sorted out in the upcoming updates. If anyone knows what is going on, please do not hesitate to make a pull request or an issue. 
 
 # Want to contribute?
 This library in still in very early stages of development so bugs are to be expected. If you find one, please make an issue and provide steps on how to recreate it. If you want to test different boards, feel free to run the the [board test file](https://github.com/Bobingstern/MicroFlow/blob/main/examples/board_test.ino) on your board and make an issue with your test results. Thanks!
