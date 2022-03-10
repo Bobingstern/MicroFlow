@@ -174,7 +174,7 @@ The `feedforward` method takes in 2 parameters. `inputs` and `outputs`.
 `outputs` is the array to store the output of the feed forward pass *(double array)*
 
 ### Don't have an Arduino right now?
-Check out the repl I made to demonstrate the library without an Arduino board. It uses exactly the same code and just includes a few extra header files. Check it out [here](https://replit.com/@Bobingstern/MicroFlow-Testing?v=1)
+Check out the repl I made to demonstrate the library without an Arduino board. It uses exactly the same code and just includes a few extra header files. Check it out [here](https://replit.com/@Bobingstern/MicroFlow-Demo?v=1)
 
 ## Compatibility
 
