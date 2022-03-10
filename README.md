@@ -7,7 +7,7 @@ Export and run TensorFlow models on Arduino microcontrollers!
 Currently, tflite-micro can only run on high memory boards like the Nano 33 BLE. I wanted to make it possible to run TensorFlow models on boards even with low amounts of memory and make the process as simple as possible while still making it useful and efficient. If eventually they do manage to make it possible to run tflite on low memory boards like the Uno then this library will become obsolete :( Also, I wanted to brush up on linear algebra :) 
 
 ### Update Notes:
-Version `1.0.0` is finally finished! Eventually I will make this library class based rather than C headers and methods so make sure to stay updated for that. Eventually I will add different network types bt currently I'm working on ironing out some small issues.
+Version `1.1.0` is finished! Eventually I made this library class based rather than C headers and methods so everything is less clunky. Eventually I will add different network types but currently I'm working on ironing out some small issues.
 
 # Usage
 
@@ -114,39 +114,38 @@ def weights_to_cpp(model, filename="weights_and_biases.txt"):
 This is where the magic happens! Now that you have the weights, biases and architecture of the neural network, you are ready to run it on an Arduino board. **Be cautious of memory! If you neural network is too big you will run out of memory and not be able to run it!**
 
 Here is the XOR example in Arduino code using the model we trained earlier:
-```c++
+```cpp
 #include "MicroFlow.h"
 
 void setup(){
   Serial.begin(9600);
-  //Architecture of the network
   int topology[] = {2, 2, 2, 1};
-  //Total number of layers
-  int layers = 4;
-  //Weights and biases obtained from training
   double weights[] = {6.5388827, 2.3116155, 6.5393276, 2.311627, -2.8204367, -2.5849876, 3.4741454, -1.7074409, -2.5904362, -0.8814233};
   double biases[] = {-1.4674287, -3.13011, 0.36903697, -0.27291444, 1.5541532};
-  //Inputs and outputs for testing the network
   double inputs[] = {0, 0};
   double output[1] = {};
+  int[] activations = {SIGMOID, SIGMOID, SIGMOID} //Activations for each layer excluding the input layer
+  int layers = 4;
   
-  
-  feedforward(layers, topology, weights, biases, inputs, LOGISTIC, output); //Feedforward pass
+  MicroMLP mlp(layers, topology, weights, biases, SIGMOID); //Create the Multi-Layer Perceptron
+  //MicroMLP mlp(layers, topology, weights, biases, activations); //This is also valid.
+
+  mlp.feedforward(inputs, output); //Run a feedforward pass
   Serial.print("Inputs: ");Serial.print(inputs[0]);Serial.print(", ");Serial.println(inputs[1]);
   Serial.print("Neural Network Output: ");Serial.println(output[0]);
 
   inputs[0] = 1;
-  feedforward(layers, topology, weights, biases, inputs, LOGISTIC, output);
+  mlp.feedforward(inputs, output);
   Serial.print("Inputs: ");Serial.print(inputs[0]);Serial.print(", ");Serial.println(inputs[1]);
   Serial.print("Neural Network Output: ");Serial.println(output[0]);
 
   inputs[1] = 1;
-  feedforward(layers, topology, weights, biases, inputs, LOGISTIC, output);
+  mlp.feedforward(inputs, output);
   Serial.print("Inputs: ");Serial.print(inputs[0]);Serial.print(", ");Serial.println(inputs[1]);
   Serial.print("Neural Network Output: ");Serial.println(output[0]);
 
   inputs[0] = 0;
-  feedforward(layers, topology, weights, biases, inputs, LOGISTIC, output);
+  mlp.feedforward(inputs, output);
   Serial.print("Inputs: ");Serial.print(inputs[0]);Serial.print(", ");Serial.println(inputs[1]);
   Serial.print("Neural Network Output: ");Serial.println(output[0]);
 }
@@ -154,21 +153,25 @@ void loop(){
   
 }
 ```
-The ```feedforward``` method takes in 6 parameters. `layers` `topology` `weights` `biases` `inputs` `activation` `output`
+#### MicroMLP
+The ```MicroMLP``` constructor takes in 5 parameters. `layers` `topology` `weights` `biases` `activation` 
 
-`layers` is the total number of layers in the neural network (int)
+`layers` is the total number of layers in the neural network *(int)*
 
-`topology` is the architecture of the neural network (int array)
+`topology` is the architecture of the neural network *(int array)*
 
-`weights` is the weights obtained by training (double array)
+`weights` is the weights obtained by training *(double array)*
 
-`biases` is the biases obtained by training (double array)
+`biases` is the biases obtained by training *(double array)*
 
-`inputs` is the input for the feed forward pass (double array)
+`activation` is the activation of the network. Activations range from: **0** `SIGMOID`, **1** `TANH`, **2** `RELU`, **3**, `EXPONENTIAL` (e^x), **4**,`SWISH` (x * sigmoid(x)), **-1** `LINEAR` (no activation). This parameter can be an int array containing the activation for each layer (excluding the input). For example, a network with a topology `{2, 2, 2, 1}` could have an activation of `{TANH, TANH, TANH}` or just `TANH` *(int or int array)*
 
-`activation` is the activation of the network. Currently, it is the same activation for each layer. Activation range from: **0** `LOGISTIC` (sigmoid), **1** `TANH`, **2** `RELU`, **3**, `LINEAR` (none). (int)
+#### feedforward
+The `feedforward` method takes in 2 parameters. `inputs` and `outputs`.
 
-`output` where you want to output of the feed forward pass to be stored. (double array)
+`inputs` are just the inputs for the feed forward pass *(double array)*
+
+`outputs` is the array to store the output of the feed forward pass *(double array)*
 
 ### Don't have an Arduino right now?
 Check out the repl I made to demonstrate the library without an Arduino board. It uses exactly the same code and just includes a few extra header files. Check it out [here](https://replit.com/@Bobingstern/MicroFlow-Testing?v=1)

@@ -14,11 +14,11 @@ void setup(){
   double inputs[] = {0};
   double output[1] = {};
   
-
+  MicroMLP mlp(layers, topology, weights, biases, TANH);
   for (int i=0;i<180;i++){
     inputs[0] = i * (3.14/180);
     //Feedforward pass through the network
-    feedforward(layers, topology, weights, biases, inputs, TANH, output);
+    mlp.feedforward(inputs, output);
     Serial.print("Inputs: ");Serial.println(inputs[0]);
     Serial.print("Neural Network Output: ");Serial.println(output[0]);
     Serial.print("Actual:");Serial.println(sin(inputs[0]));

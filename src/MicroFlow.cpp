@@ -3,7 +3,7 @@
 
 
 // bool matrix_multiply(int R, int R2, int C2, double* a, double* b, double* result, int size){
-// 	// double result[R2];
+//  // double result[R2];
 //   double cpy[R];
 //   for (int i=0;i<R;i++){
 //     cpy[i] = a[i];
@@ -29,19 +29,40 @@
 //   // return result;
 // }
 
+MicroMLP::MicroMLP(int la, int* top, double* w, double* b, int* a){
+  layers = la;
+  topology = top;
+  weights = w;
+  biases = b;
+  activations = a;
+}
+
+MicroMLP::MicroMLP(int la, int* top, double* w, double* b, int a){
+  layers = la;
+  topology = top;
+  weights = w;
+  biases = b;
+  sameActiv = a;
+  allSameActiv = true;
+}
+
 void activate(int l, double* z, int activation) {
   for (int i = 0; i < l; i++) {
-    if (activation == LOGISTIC) {
+    if (activation == SIGMOID) {
       z[i] = 1 / (1 + exp(-z[i]));
     } else if (activation == TANH) {
       z[i] = tanh(z[i]);
-    } else {
+    } else if (activation == EXPONENTIAL){
+      z[i] = exp(z[i]);
+    } else if (activation == SWISH){
+      z[i] = z[i] / (1 + exp(-z[i]));
+    } else if (activation == RELU){
       z[i] = fmax(0, z[i]);
     }
   }
 }
 
-void feedforward(int layers, int* topology, double* weights, double* biases, double* input, int activ, double* out){
+void MicroMLP::feedforward(double* input, double* out){
   int maxLayer = 0;
   for (int i=0;i<layers;i++){
     if (topology[i] > maxLayer){
@@ -80,7 +101,10 @@ void feedforward(int layers, int* topology, double* weights, double* biases, dou
       x[i] += biases[i+biasAdder];
     }
     if (l != layers-2){
-      activate(topology[l+1], x, activ);
+      if (!allSameActiv)
+        activate(topology[l+1], x, activations[l]);
+      else
+        activate(topology[l+1], x, sameActiv);
     }
     weightAdder += topology[l]*topology[l+1];
     biasAdder += topology[l+1];

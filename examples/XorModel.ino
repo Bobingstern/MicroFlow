@@ -9,22 +9,24 @@ void setup(){
   double output[1] = {};
   int layers = 4;
   
-  feedforward(layers, topology, weights, biases, inputs, LOGISTIC, output);
+  MicroMLP mlp(layers, topology, weights, biases, SIGMOID);
+  
+  mlp.feedforward(inputs, output);
   Serial.print("Inputs: ");Serial.print(inputs[0]);Serial.print(", ");Serial.println(inputs[1]);
   Serial.print("Neural Network Output: ");Serial.println(output[0]);
 
   inputs[0] = 1;
-  feedforward(layers, topology, weights, biases, inputs, LOGISTIC, output);
+  mlp.feedforward(inputs, output);
   Serial.print("Inputs: ");Serial.print(inputs[0]);Serial.print(", ");Serial.println(inputs[1]);
   Serial.print("Neural Network Output: ");Serial.println(output[0]);
 
   inputs[1] = 1;
-  feedforward(layers, topology, weights, biases, inputs, LOGISTIC, output);
+  mlp.feedforward(inputs, output);
   Serial.print("Inputs: ");Serial.print(inputs[0]);Serial.print(", ");Serial.println(inputs[1]);
   Serial.print("Neural Network Output: ");Serial.println(output[0]);
 
   inputs[0] = 0;
-  feedforward(layers, topology, weights, biases, inputs, LOGISTIC, output);
+  mlp.feedforward(inputs, output);
   Serial.print("Inputs: ");Serial.print(inputs[0]);Serial.print(", ");Serial.println(inputs[1]);
   Serial.print("Neural Network Output: ");Serial.println(output[0]);
 }

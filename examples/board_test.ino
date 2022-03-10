@@ -6,23 +6,23 @@ void XOR_test(){
   double inputs[] = {0, 0};
   double output[1] = {};
   int layers = 4;
-  
-  feedforward(layers, topology, weights, biases, inputs, LOGISTIC, output);
+  MicroMLP mlp(layers, topology, weights, biases, SIGMOID);
+  mlp.feedforward(inputs, output);
   Serial.print("Inputs: ");Serial.print(inputs[0]);Serial.print(", ");Serial.println(inputs[1]);
   Serial.print("Neural Network Output: ");Serial.println(output[0]);
 
   inputs[0] = 1;
-  feedforward(layers, topology, weights, biases, inputs, LOGISTIC, output);
+  mlp.feedforward(inputs, output);
   Serial.print("Inputs: ");Serial.print(inputs[0]);Serial.print(", ");Serial.println(inputs[1]);
   Serial.print("Neural Network Output: ");Serial.println(output[0]);
 
   inputs[1] = 1;
-  feedforward(layers, topology, weights, biases, inputs, LOGISTIC, output);
+  mlp.feedforward(inputs, output);
   Serial.print("Inputs: ");Serial.print(inputs[0]);Serial.print(", ");Serial.println(inputs[1]);
   Serial.print("Neural Network Output: ");Serial.println(output[0]);
 
   inputs[0] = 0;
-  feedforward(layers, topology, weights, biases, inputs, LOGISTIC, output);
+  mlp.feedforward(inputs, output);
   Serial.print("Inputs: ");Serial.print(inputs[0]);Serial.print(", ");Serial.println(inputs[1]);
   Serial.print("Neural Network Output: ");Serial.println(output[0]);
 }
@@ -40,11 +40,11 @@ void Sin_test(){
   double inputs[] = {0};
   double output[1] = {};
   
-
+  MicroMLP mlp(layers, topology, weights, biases, TANH);
   for (int i=0;i<180;i++){
     inputs[0] = i * (3.14/180);
     //Feedforward pass through the network
-    feedforward(layers, topology, weights, biases, inputs, TANH, output);
+    mlp.feedforward(inputs, output);
     Serial.print("Inputs: ");Serial.flush();Serial.println(inputs[0]);
     Serial.flush();
     Serial.print("Neural Network Output: ");Serial.flush();Serial.println(output[0]);
@@ -56,11 +56,9 @@ void Sin_test(){
 
 void setup(){
   Serial.begin(9600);
-  //Uncomment these indivisually. If both of them run properly, feel free to make an issue!
   //XOR_test();
   //Sin_test();
   
-
 }
 void loop(){
   
