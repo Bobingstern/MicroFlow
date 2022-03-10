@@ -111,7 +111,7 @@ def weights_to_cpp(model, filename="weights_and_biases.txt"):
 
 ```
 ### Running on Arduino
-This is where the magic happens! Now that you have the weights, biases and architecture of the neural network, you are ready to run it on an Arduino board. **Be cautious of memory! If you neural network is too big you will run out of memory and not be able to run it!**
+This is where the magic happens! Now that you have the weights, biases and architecture of the neural network, you are ready to run it on an Arduino board. **Be cautious of memory! If your neural network is too big you will run out of memory and not be able to run it!**
 
 Here is the XOR example in Arduino code using the model we trained earlier:
 ```cpp
