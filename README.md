@@ -7,7 +7,7 @@ Export and run TensorFlow models on Arduino microcontrollers!
 Currently, tflite-micro can only run on high memory boards like the Nano 33 BLE. I wanted to make it possible to run TensorFlow models on boards even with low amounts of memory and make the process as simple as possible while still making it useful and efficient. If eventually they do manage to make it possible to run tflite on low memory boards like the Uno then this library will become obsolete :( Also, I wanted to brush up on linear algebra :) 
 
 ### Update Notes:
-Version `1.1.2` released. I was trying to get it to work with the Arduino library manager so I hadto release a small patch. I'm working on new test cases and examples so stay tuned for that!
+Version `1.1.2` released. I was trying to get it to work with the Arduino library manager so I had to release a small patch. I'm working on new test cases and examples so stay tuned for that!
 
 # Usage
 
