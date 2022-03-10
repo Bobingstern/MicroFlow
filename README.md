@@ -192,7 +192,7 @@ If you've tested a board that is not on this list, please make an issue and tell
 Currently, the Arduino Uno cannot run the Sin test. If I've done the math correctly, the Uno should be able to run the model with more than 400 bytes of memory left but it just kind of dies. I've tested it on the Mega while monitoring the memory and it does not exceed the limit of the Uno. I assume it is a problem with the Serial Monitor. I'll try to get this sorted out in the upcoming updates. If anyone knows what is going on, please do not hesitate to make a pull request or an issue. 
 
 # Want to contribute?
-This library in still in very early stages of development so bugs are to be expected. If you find one, please make an issue and provide steps on how to recreate it. If you want to test different boards, feel free to run the the [board test file](https://github.com/Bobingstern/MicroFlow/blob/main/examples/board_test.ino) on your board and make an issue with your test results. Thanks!
+This library in still in very early stages of development so bugs are to be expected. If you find one, please make an issue and provide steps on how to recreate it. If you want to test different boards, feel free to run the the [board test file](https://github.com/Bobingstern/MicroFlow/blob/main/examples/board_test/board_test.ino) on your board and make an issue with your test results. Thanks!
 
 # Contributors
 <a href="https://github.com/bobingstern/MicroFlow/graphs/contributors">
