@@ -12,7 +12,7 @@ Version `1.1.2` released. I was trying to get it to work with the Arduino librar
 # Usage
 
 ### Installation
-Currently, this library is not available on the Arduino library manager so go ahead and download the latest release at: https://github.com/Bobingstern/MicroFlow/releases and at it to your sketch folder
+This library is available on the Arduino library manager, just look up "MicroFlow" and install the latest version. If you don't want to do that then go ahead and download the latest release at: https://github.com/Bobingstern/MicroFlow/releases and at it to your libraries folder
 
 ### Training
 Train the model using tensorflow on whatever system you like. You can refer to the training examples for sin and XOR [here](https://github.com/Bobingstern/MicroFlow/blob/main/examples/Arduino_MicroFlow.ipynb)
