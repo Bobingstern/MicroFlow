@@ -1,33 +1,46 @@
-#include "MicroFlow.h"
-void XOR_test(){
+#include <MicroFlow.h>
+
+// Uncomment/comment if needed
+#define TEST_XOR
+#define TEST_SIN
+
+#if defined(TEST_XOR)
+void XORtest(){
   int topology[] = {2, 2, 2, 1};
   double weights[] = {6.5388827, 2.3116155, 6.5393276, 2.311627, -2.8204367, -2.5849876, 3.4741454, -1.7074409, -2.5904362, -0.8814233};
   double biases[] = {-1.4674287, -3.13011, 0.36903697, -0.27291444, 1.5541532};
   double inputs[] = {0, 0};
   double output[1] = {};
   int layers = 4;
+  
   MicroMLP mlp(layers, topology, weights, biases, SIGMOID);
   mlp.feedforward(inputs, output);
-  Serial.print("Inputs: ");Serial.print(inputs[0]);Serial.print(", ");Serial.println(inputs[1]);
-  Serial.print("Neural Network Output: ");Serial.println(output[0]);
+  Serial.print("Inputs: "); Serial.print(inputs[0]); Serial.print(", "); Serial.println(inputs[1]);
+  Serial.print("Neural network output: "); Serial.println(output[0]);
+  Serial.println();
 
   inputs[0] = 1;
   mlp.feedforward(inputs, output);
-  Serial.print("Inputs: ");Serial.print(inputs[0]);Serial.print(", ");Serial.println(inputs[1]);
-  Serial.print("Neural Network Output: ");Serial.println(output[0]);
+  Serial.print("Inputs: "); Serial.print(inputs[0]); Serial.print(", "); Serial.println(inputs[1]);
+  Serial.print("Neural network output: "); Serial.println(output[0]);
+  Serial.println();
 
   inputs[1] = 1;
   mlp.feedforward(inputs, output);
-  Serial.print("Inputs: ");Serial.print(inputs[0]);Serial.print(", ");Serial.println(inputs[1]);
-  Serial.print("Neural Network Output: ");Serial.println(output[0]);
+  Serial.print("Inputs: "); Serial.print(inputs[0]); Serial.print(", "); Serial.println(inputs[1]);
+  Serial.print("Neural network output: "); Serial.println(output[0]);
+  Serial.println();
 
   inputs[0] = 0;
   mlp.feedforward(inputs, output);
-  Serial.print("Inputs: ");Serial.print(inputs[0]);Serial.print(", ");Serial.println(inputs[1]);
-  Serial.print("Neural Network Output: ");Serial.println(output[0]);
+  Serial.print("Inputs: "); Serial.print(inputs[0]); Serial.print(", "); Serial.println(inputs[1]);
+  Serial.print("Neural network output: "); Serial.println(output[0]);
+  Serial.println();
 }
+#endif
 
-void Sin_test(){
+#if defined(TEST_SIN)
+void SINtest(){
   //Neural network architecture
   int topology[] = {1, 16, 16, 1};
   //Total number of layers in the network
@@ -41,25 +54,34 @@ void Sin_test(){
   double output[1] = {};
   
   MicroMLP mlp(layers, topology, weights, biases, TANH);
-  for (int i=0;i<180;i++){
+  for (int i = 0; i < 180; i++) {
     inputs[0] = i * (3.14/180);
     //Feedforward pass through the network
     mlp.feedforward(inputs, output);
-    Serial.print("Inputs: ");Serial.flush();Serial.println(inputs[0]);
-    Serial.flush();
-    Serial.print("Neural Network Output: ");Serial.flush();Serial.println(output[0]);
-    Serial.flush();
-    Serial.print("Actual:");Serial.flush();Serial.println(sin(inputs[0]));
-    Serial.flush();
+    Serial.print("Inputs: "); Serial.println(inputs[0]);
+    Serial.print("Neural network output: "); Serial.println(output[0]);
+    Serial.print("Actual: "); Serial.println(sin(inputs[0]));
+    Serial.println();
   }
 }
+#endif
 
-void setup(){
+void setup() {
   Serial.begin(9600);
-  //XOR_test();
-  //Sin_test();
-  
+  // Wait for Serial to begin
+  while (!Serial) {
+    ;
+  }
+  #if defined(TEST_XOR)
+  Serial.println("XOR test\n");
+  XORtest();
+  #endif
+  #if defined(TEST_SIN)
+  Serial.println("SIN test\n");
+  SINtest();
+  #endif
 }
-void loop(){
-  
+
+void loop() {
+  ;
 }
