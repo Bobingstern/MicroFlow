@@ -183,7 +183,7 @@ Check out the repl I made to demonstrate the library without an Arduino board. I
 | Arduino Uno      | ATmega328P     | 2KB   | :white_check_mark:     | :x:     |
 | Arduino Mega (Recommended)     | ATmega2560     | 8KB   | :white_check_mark: | :white_check_mark: |
 | Arduino Due      | SAM3X8E M3     | 96KB  | :white_check_mark: | :white_check_mark: |
-| Adafruit PyGamer | ATSAMD51J19 M4 | 192KB | :heavy_minus_sign: | :heavy_minus_sign: |
+| Adafruit PyGamer | ATSAMD51J19 M4 | 192KB | :white_check_mark: | :white_check_mark: |
 | ESP32            | ESP-WROOM-32   | 320KB | :heavy_minus_sign: | :heavy_minus_sign: |
 
 If you've tested a board that is not on this list, please make an issue and tell me!
@@ -198,5 +198,3 @@ This library in still in very early stages of development so bugs are to be expe
 <a href="https://github.com/bobingstern/MicroFlow/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=bobingstern/MicroFlow" />
 </a>
-
-
