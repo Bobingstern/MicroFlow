@@ -7,7 +7,7 @@ Export and run TensorFlow models on Arduino microcontrollers!
 Currently, tflite-micro can only run on high memory boards like the Nano 33 BLE. I wanted to make it possible to run TensorFlow models on boards even with low amounts of memory and make the process as simple as possible while still making it useful and efficient. If eventually they do manage to make it possible to run tflite on low memory boards like the Uno then this library will become obsolete :( Also, I wanted to brush up on linear algebra :) 
 
 ### Update Notes:
-Version `1.1.2` released. I was trying to get it to work with the Arduino library manager so I had to release a small patch. I'm working on new test cases and examples so stay tuned for that!
+Version `1.1.3` released. I added a new example.
 
 # Usage
 
@@ -173,6 +173,11 @@ The `feedforward` method takes in 2 parameters. `inputs` and `outputs`.
 
 `outputs` is the array to store the output of the feed forward pass *(double array)*
 
+### Larger Example
+![Dino Game played by MicroFlow](https://raw.githubusercontent.com/Bobingstern/MicroFlow/main/assets/dino.gif)
+
+Heres an example of MicroFlow playing the Chrome Dino game on an LCD. It was trained by saving the data of me playing and then training of off it. It plays at 100% accuracy now even with a relatively small neural network. Check out the code in the examples folder https://github.com/Bobingstern/MicroFlow/tree/main/examples
+
 ### Don't have an Arduino right now?
 Check out the repl I made to demonstrate the library without an Arduino board. It uses exactly the same code and just includes a few extra header files. Check it out [here](https://replit.com/@Bobingstern/MicroFlow-Demo?v=1)
 
@@ -183,8 +188,8 @@ Check out the repl I made to demonstrate the library without an Arduino board. I
 | Arduino Uno      | ATmega328P     | 2KB   | :white_check_mark:     | :x:     |
 | Arduino Mega (Recommended)     | ATmega2560     | 8KB   | :white_check_mark: | :white_check_mark: |
 | Arduino Due      | SAM3X8E M3     | 96KB  | :white_check_mark: | :white_check_mark: |
-| Adafruit PyGamer | ATSAMD51J19 M4 | 192KB | :heavy_minus_sign: | :heavy_minus_sign: |
-| ESP32            | ESP-WROOM-32   | 320KB | :heavy_minus_sign: | :heavy_minus_sign: |
+| Adafruit PyGamer | ATSAMD51J19 M4 | 192KB | :white_check_mark: | :white_check_mark: |
+| ESP32            | ESP-WROOM-32   | 320KB | :white_check_mark: | :white_check_mark: |
 
 If you've tested a board that is not on this list, please make an issue and tell me!
 
