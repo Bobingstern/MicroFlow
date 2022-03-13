@@ -176,7 +176,7 @@ The `feedforward` method takes in 2 parameters. `inputs` and `outputs`.
 ### Larger Example
 ![Dino Game played by MicroFlow](https://raw.githubusercontent.com/Bobingstern/MicroFlow/main/assets/dino.gif)
 
-Heres an example of MicroFlow playing the Chrome Dino game on an LCD. It was trained by saving the data of me playing and then training of off it. It plays at 100% accuracy now even with a relatively small neural network. Check out the code in the examples folder https://github.com/Bobingstern/MicroFlow/tree/main/examples
+Heres an example of MicroFlow playing the Chrome Dino game on an LCD. It was trained by saving the data of me playing and then training of off it. It plays at 100% accuracy now even with a relatively small neural network. Currently it's only been tested on the Arduino Mega, the Uno doesn't have enough memory. Check out the code in the examples folder https://github.com/Bobingstern/MicroFlow/tree/main/examples
 
 ### Don't have an Arduino right now?
 Check out the repl I made to demonstrate the library without an Arduino board. It uses exactly the same code and just includes a few extra header files. Check it out [here](https://replit.com/@Bobingstern/MicroFlow-Demo?v=1)
